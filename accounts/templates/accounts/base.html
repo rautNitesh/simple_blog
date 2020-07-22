@@ -1,0 +1,25 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    {% endblock %}
+    <link rel="shortcut icon" type="image/jpg" href="https://img.favpng.com/3/21/1/favicon-clip-art-blogger-portable-network-graphics-computer-icons-png-favpng-Nb5TwxVdzakUYDjG0fCRZwdNm.jpg"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;400;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <nav>
+        <div class="nav_logo">BlogApp</div>
+        <div class="nav_links">
+            <a href="#">Home</a>
+            <a href="#">Contact</a>
+            <a href="{% url 'blog:home' %}">Blog</a>
+        </div>
+    </nav>
+</header>
+{% block content %}
+{% endblock %}
+</body>
+</html>

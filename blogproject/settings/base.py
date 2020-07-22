@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'blog',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -107,3 +108,7 @@ USE_L10N = True
 USE_TZ = True
 
 
+AUTH_USER_MODEL = 'accounts.UserModel'
+
+LOGIN_URL = 'accounts/login'
+LOGIN_REDIRECT_URL = '/'

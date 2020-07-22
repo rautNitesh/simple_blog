@@ -1,0 +1,21 @@
+{% extends 'blogapp/base.html' %}
+{% block title %}
+<title>{{ post.title }}</title>
+{% endblock %}
+{% block content %}
+<section class="blog_posts blog_posts_detail">
+    <div class="Card_detail">
+        <p class="title_detail">{{ post.title }}</p>
+        <div class="blog_content">
+            <p class="grey">
+                {% if post.updated_at %}
+                    update at:{{ post.updated_at }}
+                {% endif %}
+                    created at:{{ post.created_at }}
+            </p>
+            <p>{{ post.author }}</p>
+            <p>{{ post.blog_body }}</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

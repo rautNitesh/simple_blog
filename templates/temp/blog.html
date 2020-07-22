@@ -1,0 +1,23 @@
+{% extends 'blogapp/base.html' %}
+{% block title %}
+<title>Blog</title>
+{% endblock %}
+{% block content %}
+<main>
+    <section class="top_banner">
+        <h1> Welcome to the blog</h1>
+    </section>
+    <section class="blog_posts">
+        {% for post in posts %}
+            <a href="{% url 'blog_detail' post.id %}">
+                <div class="Card">
+                    <p class="title">{{ post.author }}</p>
+                    <div class="blog_content">
+                        {{ post.title }}
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </section>
+</main>
+{% endblock %}
