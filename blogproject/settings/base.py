@@ -112,3 +112,5 @@ AUTH_USER_MODEL = 'accounts.UserModel'
 
 LOGIN_URL = 'accounts/login'
 LOGIN_REDIRECT_URL = '/'
+
+LOG_OUT_REDIRECT_URL = 'accounts/login'

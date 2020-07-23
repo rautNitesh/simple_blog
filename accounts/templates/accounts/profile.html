@@ -1,0 +1,38 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>My Blog- You profile- {{ request.user.username }}</title>
+{% endblock %}
+
+{% block content %}
+    <main>
+        <section>
+            <div class="top_banner"><h3>Profile</h3></div>
+        </section>
+        <section class="form_section">
+            <div class="Card Card-small color-white">
+                <div class="title">
+                    {{ request.user.username }}
+                </div>
+                <div class="btn-container">
+                    <a class="btn btn-fair">Edit</a>
+                    <a class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+            <div class="Card Card-small color-white">
+                <div class="profile-container">
+                <p>
+                    <img src="/media/{{ request.user.profile_pic }}" height="200px" width="200px"/>
+                </p>
+                    {% if request.user.first_name %}
+                        <h3>Name:{{ request.user.first_name }}</h3>
+                    {% endif %}
+                    <p>Username: {{ request.user.username }}</p>
+                    <p>Email: {{ request.user.email }}</p>
+                </div>
+            </div>
+
+        </section>
+    </main>
+{% endblock %}

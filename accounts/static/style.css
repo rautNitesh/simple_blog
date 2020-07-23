@@ -141,8 +141,13 @@ form input:focus{
     padding: 0.5em;
     background-color: transparent;
     justify-content: right;
-    margin-left: 41.7em;
     cursor: pointer;
+}
+.mt-1{
+    margin-top: 5em;
+}
+.card-content{
+    margin-top: 1em;
 }
 .btn:focus{
     outline: none;
@@ -161,3 +166,18 @@ form table tbody .helptext{
     list-style-type: none;
     color: red;
 }
+
+ .profile-container{
+     padding: 1em;
+     text-align: center;
+ }
+ .btn-fair{
+     background-color: #0bc67a;
+     color: white;
+     padding: 0 1em;
+ }
+ .btn-danger{
+     background-color: #a7062d;
+     color: white;
+     padding: 0 1em;
+ }

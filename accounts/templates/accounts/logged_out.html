@@ -1,0 +1,23 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %}
+    <title>My Blog- You are logged out</title>
+{% endblock %}
+
+{% block content %}
+    <main>
+        <section>
+            <div class="top_banner"><h3>You are successfully logged out.</h3></div>
+        </section>
+        <section class="form_section">
+            <div class="Card Card-small color-white">
+                <div class="title">
+                    You can log in here.
+                </div>
+                <div class="card-content">
+                    <a class="btn btn-success inverse mt-1" href="{% url 'accounts:login' %}">Login</a>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}
