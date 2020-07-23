@@ -16,8 +16,8 @@
                     {{ request.user.username }}
                 </div>
                 <div class="btn-container">
-                    <a class="btn btn-fair">Edit</a>
-                    <a class="btn btn-danger">Delete</a>
+                    <a href="{% url 'accounts:update' request.user.id %}" class="btn btn-fair">Edit</a>
+                    <a href="{% url 'accounts:delete' request.user.id %}" class="btn btn-danger">Delete</a>
                 </div>
             </div>
             <div class="Card Card-small color-white">

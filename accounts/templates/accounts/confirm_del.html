@@ -1,0 +1,23 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Are you sure want to delete- {{ request.user.username }}</title>
+{% endblock %}
+
+{% block content %}
+    <main>
+        <section>
+            <div class="top_banner"><h3>Delete !</h3></div>
+        </section>
+        <section class="form_section">
+            <div class="Card Card-small color-white">
+                <form method="post">{% csrf_token %}
+                <p>Are you sure you want to delete "{{ request.user }}"?</p>
+                <input class="btn btn-danger" type="submit" value="Confirm">
+            </form>
+            </div>
+
+        </section>
+    </main>
+{% endblock %}
