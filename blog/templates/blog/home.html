@@ -1,15 +1,38 @@
-{% extends 'accounts/base.html' %}
+{% extends 'blog/base.html' %}
 {% block title %}
-    <title>Blog- Explore all blog posts</title>
+<title>Blog</title>
 {% endblock %}
-
 {% block content %}
-
-    <main>
-        <Card>
-            <div class="title">
-                All blog posts are coming here
-            </div>
-        </Card>
-    </main>
+<main>
+    <section class="top_banner" style="padding: 1em; margin-bottom: .5em;">
+        <h1> Welcome to the blog</h1>
+    </section>
+    <section class="blog_posts">
+        {% for post in posts %}
+{#            <a href="{% url 'blog_detail' post.id %}">#}
+                <div class="Card">
+                    <p class="title">{{ post.user.username }}</p>
+                    <div class="btn-container">
+                        {% if request.user == post.user %}
+                            <a href="{% url 'blog:home' %}" class="btn btn-fair">Edit</a>
+                            <a href="{% url 'blog:home' %}" class="btn btn-danger">Delete</a>
+                        {% endif %}
+                    </div>
+                    <p style="color:grey; font-size: 10px">{{ post.user.email }}</p>
+                    <p class="grey">
+                        {% if post.updated_at == post.created_at %}
+                            created at:{{ post.created_at }}
+                        {% else %}
+                            created at:{{ post.created_at }}
+                            update at:{{ post.updated_at }}
+                        {% endif %}
+                    </p>
+                    <div class="blog_content">
+                        {{ post.title }}
+                    </div>
+                </div>
+{#            </a>#}
+        {% endfor %}
+    </section>
+</main>
 {% endblock %}

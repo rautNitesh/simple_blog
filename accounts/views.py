@@ -63,7 +63,7 @@ class UserLogoutView(LogoutView):
 
     def dispatch(self, request, *args, **kwargs):
         if self.request.user.is_authenticated:
-            return super().dispatch(self, *args, **kwargs)
+            return super().dispatch(request, *args, **kwargs)
         raise Http404("The page doesn't exist.")
 
 

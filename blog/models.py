@@ -5,10 +5,10 @@ from django.utils.text import slugify
 User = get_user_model()
 
 
-class BlogModel(models.Model):
+class BlogPost(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=250)
-    slug = models.SlugField(unique_for_date=True)
+    slug = models.SlugField(unique=True)
     article = models.TextField()
     created_at = models.DateField(auto_now=True)
     updated_at = models.DateField(auto_now_add=True)
@@ -17,7 +17,7 @@ class BlogModel(models.Model):
         slug = slugify(self.title)
         unique_slug = slug
         num = 1
-        while BlogModel.objects.filter(slug=unique_slug).exists():
+        while BlogPost.objects.filter(slug=unique_slug).exists():
             unique_slug = '{}-{}'.format(slug, num)
             num += 1
         return unique_slug
