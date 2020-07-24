@@ -1,4 +1,4 @@
-{% extends 'blog/base.html' %}
+{% extends 'base.html' %}
 {% block title %}
 <title>{{ post.title }}</title>
 {% endblock %}
@@ -12,9 +12,11 @@
                     update at:{{ post.updated_at }}
                 {% endif %}
                     created at:{{ post.created_at }}
+            <br>
+            User: {{ post.user.username }}
+            Email: {{ post.user.email }}
             </p>
-            <p>{{ post.author }}</p>
-            <p>{{ post.blog_body }}</p>
+            <p>{{ post.article }}</p>
         </div>
     </div>
 </section>
