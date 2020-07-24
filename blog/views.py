@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.generic import ListView
 
 
-def home(request):
-    return render(request, 'blog/home.html')
+class BlogListView(ListView):
+    pass
+
+

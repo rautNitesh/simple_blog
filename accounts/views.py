@@ -61,6 +61,11 @@ class UserCreateView(View):
 class UserLogoutView(LogoutView):
     template_name = 'accounts/logged_out.html'
 
+    def dispatch(self, request, *args, **kwargs):
+        if self.request.user.is_authenticated:
+            return super().dispatch(self, *args, **kwargs)
+        raise Http404("The page doesn't exist.")
+
 
 class UserDetailView(DetailView):
     template_name = 'accounts/profile.html'
@@ -74,7 +79,7 @@ class UserDetailView(DetailView):
     def dispatch(self, request, *args, **kwargs):
         obj = self.get_object()
         if obj != self.request.user:
-            raise Http404("You are not allowed to view this Post")
+            raise Http404("This page doesn't exist")
         return super().dispatch(request, *args, **kwargs)
 
 
@@ -89,12 +94,10 @@ class UserUpdateView(UpdateView):
         obj = self.get_object()
         if self.request.user.is_authenticated:
             if obj.email != self.request.user.email:
-                raise Http404("You are not allowed to view this Post")
-            print("Called Here")
+                raise Http404("The page doesn't exist")
             return super().dispatch(request, *args, **kwargs)
-            print("Called Here")
         else:
-            raise Http404("You must be logged in to view this")
+            raise Http404("The page doesn't exist")
 
     # def post(self, request, *args, **kwargs):
     #     if request.POST and request.FILES['profile_pic']:
@@ -117,7 +120,7 @@ class UserDeleteView(DeleteView):
     def dispatch(self, request, *args, **kwargs):
         obj = self.get_object()
         if obj != self.request.user:
-            raise Http404("You are not allowed to view this Post")
+            raise Http404("The page doesn't exist")
         return super().dispatch(request, *args, **kwargs)
 
 
@@ -140,4 +143,4 @@ class UserEmailValidateView(View):
             print(user.is_active)
             return redirect('accounts:login')
         else:
-            return redirect('accounts:register')
+            return redirect('accounts:validate_mail')
